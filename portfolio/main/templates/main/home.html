@@ -1,0 +1,65 @@
+{% load static %}
+<!-- main/templates/main/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"> Software Developer </h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#about">About me</a></li>
+                    <li><a href="#projects">My Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Brief introduction about yourself.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="project-grid">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects">
+                {% for project in projects %}
+                    <div class="project">
+                        <h3>{{ project.title }}</h3>
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                        <p>{{ project.description }}</p>
+                        {% if project.url %}
+                            <a href="{{ project.url }}">Here's how I didi it</a>
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <p>No projects found.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Where can you find me?</h2>
+            <p>social media links</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Raphael. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
