@@ -1,0 +1,24 @@
+{% extends 'main/home.html' %}
+
+{% block title %}Client Demand Form - Portfolio{% endblock %}
+
+{% block content %}
+<section id="client-form">
+    <div class="container">
+        <h2>Client Demand Form</h2>
+        <form action="{% url 'submit_form' %}" method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="description">Project Description:</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
