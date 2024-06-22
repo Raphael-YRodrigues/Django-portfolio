@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"> Software Developer </h1>
+        </div>
+        <div  id="navbar" class="navbar">
+            <a class="active" href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a>
+            <a href="#about"><i class="fa fa-fw fa-info-circle"></i> About me</a>
+            <a href="#projects"><i class="fa fa-fw fa-list-alt "></i> My Work</a>
+            <a href="#contact"><i class="fa fa-fw fa-at"></i> Contact</a>
+            <a href="{% url 'client_form' %}"><i class="fa fa-fw fa-file-text-o"></i> Client Form</a>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Raphael. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script_1.js' %}"></script>
+
+</body>
+</html>
